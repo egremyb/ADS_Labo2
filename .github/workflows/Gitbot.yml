@@ -1,6 +1,6 @@
 name: CI
 
-on: [push]
+on: [push, pull_request, create, delete]
 
 jobs:
   build:
@@ -8,12 +8,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Notify Telegram
-      uses: yanzay/notify-telegram@v0.1.0
+    - name: TelegramBridge
+      uses: GokulDas027/TelegramBridge@v1.0.b
       with:
-        # Chat to send: chat id or @channel_name
+        # Chat to send: chat id or @channel_name/add to secrets
         chat: secrets.chat
-        # Telegram Bot token
+        # Telegram Bot token/add to secrets
         token: secrets.token
         # Job status
         status: ${{ job.status }}
+        # Event triggered action
+        event: ${{ github.event_name }}
+        # Actor who did the action
+        actor: ${{ github.actor }}
