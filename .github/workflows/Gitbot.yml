@@ -1,0 +1,19 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Notify Telegram
+      uses: yanzay/notify-telegram@v0.1.0
+      with:
+        # Chat to send: chat id or @channel_name
+        chat: secrets.chat
+        # Telegram Bot token
+        token: secrets.token
+        # Job status
+        status: ${{ job.status }}
