@@ -14,8 +14,8 @@
 
 ### `ls` command
 
-### Absolute and relative path
+## Absolute and relative path
 
-### File handling
+## File handling
 
-### Globbing
+## Globbing
