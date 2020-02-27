@@ -94,3 +94,27 @@ Here are `relative paths` to ssh from their current directory.
 ## File handling
 
 ## Globbing
+`ls` command list all the files in the current directory. It is possible to pipe his output for multiple purpose. One of them is for filtering.
+
+#### Find all the logs of the first march 2015
+All the given logs respond to a format. Dates can be found in files name.  
+`2015-03-01T20_25_webserver.log` for example.
+
+To list all the logs of the first march 2015, we can use this command :  
+`ls | find -iname "2015-03-01*"`.
+
+`find` command will any files respecting certains conditions. `-iname "abc*"` is a condition which a file name must begin with 'abc', replace 'abc' for what you are looking for.
+
+#### Find all logs of the database's component
+The database's component include the keyword `database` in their log's name.  
+`2015-03-01T00_25_database.log` for example.
+
+To list all the logs of the database's component, here is the command
+`ls | find -iname "*database*"`
+
+#### Find all logs of applications
+The logs of applications include the keyword `app` in their log's name.
+`2015-02-27T08_17_app_sales.log` for example.
+
+To list all the logs of applications, here is the command
+`ls | find -iname "*app*"`
