@@ -1,6 +1,6 @@
 name: CI
 
-on: [push, pull_request, create, delete]
+on: [push, pull_request]
 
 jobs:
   build:
@@ -8,10 +8,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@master
-    - name: send custom message with args
+    - name: send default message
       uses: appleboy/telegram-action@master
       with:
         to: ${{ secrets.chat }}
         token: ${{ secrets.token }}
-        args: The ${{ github.event_name }} event triggered.
