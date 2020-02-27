@@ -15,7 +15,10 @@
 ### `ls` command
 
 ## Absolute and relative path
+#### Absolute path
+Absolute path points to a specific file or directory location from the root `/``.
 
+Absolute path to ssh : `/usr/bin/ssh`
 ## File handling
 
 ## Globbing
