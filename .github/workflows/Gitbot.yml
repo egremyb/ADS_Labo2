@@ -8,16 +8,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: TelegramBridge
-      uses: GokulDas027/TelegramBridge@v1.0.b
+    - uses: actions/checkout@master
+    - name: send custom message with args
+      uses: appleboy/telegram-action@master
       with:
-        # Chat to send: chat id or @channel_name/add to secrets
-        chat: secrets.chat
-        # Telegram Bot token/add to secrets
-        token: secrets.token
-        # Job status
-        status: ${{ job.status }}
-        # Event triggered action
-        event: ${{ github.event_name }}
-        # Actor who did the action
-        actor: ${{ github.actor }}
+        to: ${{ secrets.chat }}
+        token: ${{ secrets.token }}
+        args: The ${{ github.event_name }} event triggered.
