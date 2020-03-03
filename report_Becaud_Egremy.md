@@ -92,6 +92,106 @@ Here are `relative paths` to ssh from their current directory.
 1. /usr/local/bin`/../../bin/ssh`
 
 ## File handling
+#### Manipulate the directories and files to obtain the following structure :
+```
+ex01_files
+└── play
+|   ├── trip
+|   └── trip_copy
+└── work
+       └── book
+           ├── chap01
+           ├── chap02
+           └── chap03
+```
+History of commands :
+```
+curl -O http://heigvd-ads.s3-website-eu-west-1.amazonaws.com/exercises/ex01_files.zip
+unzip ex01_files.zip
+cd ex01_files/
+mv chap03 downloads/book/chap03
+mv downloads/book/ work/
+cp play/trip play/trip_copy
+rmdir downloads/
+```
+Then we use the command `tree` to print the structure and get this :
+```
+.
+├── play
+│   ├── trip
+│   └── trip_copy
+└── work
+       └── book
+           ├── chap01
+           ├── chap02
+           └── chap03
+```
+#### Give the results without executing the commands
+Given structure :
+```
+.
+├── index2.html
+├── index.html
+├── index.html~
+├── labs
+│   ├── index.html
+│   ├── lab01.html
+│   └── starter.tar.gz
+└── lectures
+       └── index.html
+```
+Expected results of commands :  
+- `mv labs/index.html labs.html`  
+Move and rename `labs/index.html` as `labs.html` in current directory.  
+
+- `mv labs labs.d`  
+Rename `labs` directory as `labs.d`.
+
+- `mv index2.html index.html`  
+Rename `index2.html` with the same name as an existing file. The existing file is overwritten.
+
+- `rm index.html~`  
+Remove 'index.html~' file.
+
+- `echo TBD > lectures/lc01.html`  
+Create a new file and write `TBD` inside.
+
+- `mkdir downloads`  
+Create a directory named `downloads`.
+
+- `cd downloads`  
+Move in `downloads` directory.
+
+- `mv ../labs/starter.tar.gz .`  
+An error occured because the `labs` directory do not exist. It was renamed as `labs.d`.
+
+Expected structure result :
+```
+ex02_files
+├── downloads
+├── index.html
+├── labs.d
+│   ├── lab01.html
+│   └── starter.tar.gz
+├── labs.html
+└── lectures
+       ├── index.html
+       └── lc01.html
+```
+
+Result of `tree` after executing the commands :
+```
+.
+├── downloads
+├── index.html
+├── labs.d
+│   ├── lab01.html
+│   └── starter.tar.gz
+├── labs.html
+└── lectures
+       ├── index.html
+       └── lc01.html
+```
 
 ## Globbing
 `ls` command list all the files in the current directory. It is possible to pipe his output for multiple purpose. One of them is for filtering.
