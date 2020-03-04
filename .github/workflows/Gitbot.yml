@@ -1,4 +1,4 @@
-name: CI
+name: Telegram_Notification
 
 on: [push, pull_request]
 
@@ -8,8 +8,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: send default message
-      uses: appleboy/telegram-action@master
+    - name: Telegram Action
+      uses: xinthink/action-telegram@v1.1
       with:
-        to: ${{ secrets.chat }}
-        token: ${{ secrets.token }}
+        # The Telegram Bot token
+        botToken: ${{ secrets.token }}
+        # The target to which the message will be sent, can be a Telegram Channel or Group
+        chatId: ${{ secrets.chat }}
+        # The current status of the job: job.status, defaults to 'success'
+        jobStatus: # optional, default is success
+        # Only non-success notifications will be sent if true, include success notifications otherwise, defaults to 'true'
+        skipSuccess: # optional, default is true
