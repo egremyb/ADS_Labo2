@@ -1,15 +1,15 @@
-name: CI
+name: Telegram_Notification
 
-on: [push, pull_request]
+on: [create, push]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
-    - name: send default message
-      uses: appleboy/telegram-action@master
-      with:
-        to: ${{ secrets.chat }}
-        token: ${{ secrets.token }}
+      - name: notification
+        if: cancelled() == false
+        uses: xinthink/action-telegram@v1.1
+        with:
+          botToken: ${{ secrets.token }}
+          chatId: ${{ secrets.chat }}
+          jobStatus: ${{ job.status }}
