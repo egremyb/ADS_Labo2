@@ -6,11 +6,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: notification
-        if: cancelled() == false
-        uses: xinthink/action-telegram@v1.1
+      - name: TelegramBridge
+        uses: GokulDas027/TelegramBridge@v1.0.b
         with:
-          botToken: ${{ secrets.token }}
-          chatId: ${{ secrets.chat }}
-          jobStatus: ${{ job.status }}
-          skipSuccess: 'false'
+          # Chat to send: chat id or @channel_name/add to secrets
+          chat: ${{secrets.chat}}
+          # Telegram Bot token/add to secrets
+          token: ${{secrets.token}}
+          # Job status
+          status: ${{ job.status }}
+          # Event triggered action
+          event: ${{ github.event_name }}
+          # Actor who did the action
+          actor: ${{ github.actor }}
