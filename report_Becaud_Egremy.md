@@ -109,6 +109,72 @@ In the `FILES` section.
 `man -k <keyword>`
 
 ### `ls` command
+Man page give us this description :
+
+_List  information about the FILEs (the current directory by default).  Sort entries alphabeti‐
+       cally if none of -cftuvSUX nor --sort is specified._
+
+The `-l` option give multiple information about the listed files and directories.
+
+Here is an example from the root directory :
+```
+/$ ls -l
+total 580K
+drwxr-xr-x  1 root root   4096 Mar  3 15:42 bin
+drwxr-xr-x  1 root root   4096 May 21  2019 boot
+drwxr-xr-x  1 root root   4096 Mar  4 09:54 dev
+drwxr-xr-x  1 root root   4096 Mar  4 11:30 etc
+drwxr-xr-x  1 root root   4096 Mar  3 15:43 home
+-rwxr-xr-x  1 root root 591344 Jan  1  1970 init
+drwxr-xr-x  1 root root   4096 Mar  3 15:49 lib
+drwxr-xr-x  1 root root   4096 May 21  2019 lib64
+drwxr-xr-x  1 root root   4096 May 21  2019 media
+drwxr-xr-x  1 root root   4096 Mar  3 15:42 mnt
+drwxr-xr-x  1 root root   4096 May 21  2019 opt
+dr-xr-xr-x  9 root root      0 Mar  4 09:54 proc
+drwx------  1 root root   4096 May 21  2019 root
+drwxr-xr-x  1 root root   4096 Mar  4 11:25 run
+drwxr-xr-x  1 root root   4096 Mar  3 15:42 sbin
+drwxr-xr-x  1 root root   4096 Mar 21  2019 snap
+drwxr-xr-x  1 root root   4096 May 21  2019 srv
+dr-xr-xr-x 12 root root      0 Mar  4 09:54 sys
+drwxrwxrwt  1 root root   4096 Mar  4 11:30 tmp
+drwxr-xr-x  1 root root   4096 May 21  2019 usr
+drwxr-xr-x  1 root root   4096 May 21  2019 var
+```
+
+The `-R` option is for recursivity. The listing process will look in every subdirectory.
+
+`tree` and `ls -R` list the files and directories of the structure from a current directory. The difference between them is how the result are presented.
+
+Here is the different results on the structure used in the __File handling__ chapter.
+
+```
+~/ex02_files$ ls -R
+.:
+index.html  index.html~  index2.html  labs  lectures
+
+./labs:
+index.html  lab01.html  starter.tar.gz
+
+./lectures:
+index.html
+```
+
+```
+~/ex02_files$ tree
+.
+├── index.html
+├── index.html~
+├── index2.html
+├── labs
+│   ├── index.html
+│   ├── lab01.html
+│   └── starter.tar.gz
+└── lectures
+    └── index.html
+```
+
 
 ## Absolute and relative path
 #### Absolute path
