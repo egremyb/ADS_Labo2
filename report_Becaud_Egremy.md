@@ -71,6 +71,14 @@ System administration commands are documented in the eighth section.
 ### Synopsis section
 
 ### Other sections
+1. What do you normally find in `DESCRIPTION` section ?  
+This section describe briefly or in details a command and often include the `OPTIONS` section for arguments usage.
+2. Which section document what each options does ?  
+In the `OPTIONS` section but in most case, this section is included in the `DESCRIPTION` section.
+3. In which part do you find references to other man pages related to the current man page ?  
+In the `SEE ALSO` section.
+4. In which section do you find the configurations files used by a program ?  
+In the `FILES` section.
 
 ### Resolve ambiguity
 
