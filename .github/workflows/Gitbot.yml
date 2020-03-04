@@ -6,14 +6,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Telegram Action
-      uses: xinthink/action-telegram@v1.1
-      with:
-        # The Telegram Bot token
-        botToken: '1092519721:AAE6Bcnwzf2Qagu-_jpjB-osYgbt2am2AX4'
-        # The target to which the message will be sent, can be a Telegram Channel or Group
-        chatId: '-402790262'
-        # The current status of the job: job.status, defaults to 'success'
-        jobStatus: 'success'
-        # Only non-success notifications will be sent if true, include success notifications otherwise, defaults to 'true'
-        skipSuccess: 'false'
+      - name: notification
+        if: cancelled() == false
+        uses: xinthink/action-telegram@v1.1
+        with:
+          botToken: ${{ secrets.token }}
+          chatId: ${{ secrets.chat }}
+          jobStatus: ${{ job.status }}
