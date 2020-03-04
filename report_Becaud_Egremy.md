@@ -73,6 +73,10 @@ System administration commands are documented in the eighth section.
 ### Other sections
 
 ### Resolve ambiguity
+1. Which option from `man` command can show all the man pages for a command ?  
+`man -a <command>`
+2. Which option from `man` command can relate all man pages including a given keyword ?  
+`man -k <keyword>`
 
 ### `ls` command
 
